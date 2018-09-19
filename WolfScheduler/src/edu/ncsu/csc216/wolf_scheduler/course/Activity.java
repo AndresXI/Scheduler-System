@@ -202,7 +202,7 @@ public abstract class Activity {
     }
    
     return getMeetingDays() + " " + normalStartTime + "-" + normalEndTime
-        + "(every " + weeklyRepeat + " weeks)"; 
+        + " (every " + weeklyRepeat + " weeks)"; 
    
   }
 
