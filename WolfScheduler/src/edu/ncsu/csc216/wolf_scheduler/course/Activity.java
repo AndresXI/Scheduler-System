@@ -5,7 +5,7 @@ package edu.ncsu.csc216.wolf_scheduler.course;
  * Super class Activity.
  * @author andres
  **/
-public abstract class Activity {
+public abstract class Activity implements Conflict {
 
   /** Upper Time limit. **/
   private static final int UPPER_TIME = 2400;
@@ -264,7 +264,19 @@ public abstract class Activity {
    * @param activity activity object Event or Course
    * @return returns true is object is a duplicate
    **/ 
-  public abstract boolean isDuplicate(Activity activity); 
+  public abstract boolean isDuplicate(Activity activity);
+
+  /* 
+   * Overrides the check conflict method in the conflict class 
+   */
+  @Override
+  public void checkConflict(Activity possibleConflictingActivity) throws ConflictException {
+    
+    
+  } 
+  
+  
+  
     
 
 }
