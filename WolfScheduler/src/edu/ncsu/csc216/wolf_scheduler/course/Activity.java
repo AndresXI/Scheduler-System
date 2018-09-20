@@ -272,6 +272,10 @@ public abstract class Activity implements Conflict {
   @Override
   public void checkConflict(Activity possibleConflictingActivity) throws ConflictException {
     
+    if (this.getMeetingDays().equals(possibleConflictingActivity.getMeetingDays())
+        && this.startTime == possibleConflictingActivity.getEndTime()) {
+        throw new ConflictException(); 
+    }
     
   } 
   
