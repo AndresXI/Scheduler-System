@@ -14,7 +14,7 @@ import org.junit.Test;
 public class ConflictExceptionTest {
 
   /**
-   * Test method for {@link edu.ncsu.csc216.wolf_scheduler.course.ConflictException#ConflictException(java.lang.String)}.
+   * Test method for ConflictException class. 
    */
   @Test
   public void testConflictExceptionString() {
@@ -23,7 +23,7 @@ public class ConflictExceptionTest {
   }
 
   /**
-   * Test method for {@link edu.ncsu.csc216.wolf_scheduler.course.ConflictException#ConflictException()}.
+   * Test method.
    */
   @Test
   public void testConflictException() {

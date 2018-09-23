@@ -274,8 +274,32 @@ public abstract class Activity implements Conflict {
     
     if (this.getMeetingDays().equals(possibleConflictingActivity.getMeetingDays())
         && this.startTime == possibleConflictingActivity.getEndTime()) {
-        throw new ConflictException(); 
+     
+        throw new ConflictException("The course cannot be added due to a conflict");
+      
+    } 
+      
+    if (this.getTitle().equals(possibleConflictingActivity.getTitle()) && possibleConflictingActivity instanceof Event) {
+        throw new ConflictException("You have already created an event called " + this.getTitle()); 
+      }
+    
+    if (this.getStartTime() == possibleConflictingActivity.getStartTime() && possibleConflictingActivity instanceof Event) {
+      throw new ConflictException("The event is invalid"); 
     }
+    
+    if (this.getEndTime() == possibleConflictingActivity.getEndTime() && possibleConflictingActivity instanceof Event) {
+      throw new ConflictException("The event is invalid"); 
+    }
+    
+    if (possibleConflictingActivity instanceof Course) {
+      Course courseCasted = (Course) possibleConflictingActivity;
+      if(courseCasted.getName().equals(this.getTitle())) {
+        throw new ConflictException("Invalid Activity"); 
+      }
+    }
+    
+  
+ 
     
   } 
   

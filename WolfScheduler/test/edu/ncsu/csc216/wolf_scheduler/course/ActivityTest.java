@@ -38,6 +38,101 @@ public class ActivityTest {
   }
   
   
+  /** Test the conflict of having the same event name **/
+  @Test
+  public void testNameConflict() {
+    
+    Activity a1 = new Event("Lunch", "M", 1130, 1445, 1, "");
+    Activity a2 = new Event("Lunch", "TH", 1500, 1600, 1, "");
+    
+    try {
+      a1.checkConflict(a2);
+      a2.checkConflict(a1);
+      fail(); 
+    } catch(ConflictException e) {
+      assertEquals("You have already created an event called Lunch", e.getMessage());
+     
+    }
+    
+  }
+  
+  /** Test the conflict of the event starting time **/
+  @Test
+  public void testStartTimeConflict() {
+    // Test for events with the same starting time 
+    Activity a1 = new Event("Lunch", "M", 1100, 1445, 1, "");
+    Activity a2 = new Event("Group Chat", "TH", 1100, 1600, 1, "");
+    
+    try {
+      a1.checkConflict(a2);
+      a2.checkConflict(a1);
+      fail(); 
+    } catch(ConflictException e) {
+      assertEquals("The event is invalid", e.getMessage());
+     
+    }
+    
+  }
+  
+  /** Test the conflict of the event ending time **/
+  @Test
+  public void testEndTimeConflict() {
+    // Test for events with the same ending time 
+    Activity a1 = new Event("Lunch", "M", 1100, 1445, 1, "");
+    Activity a2 = new Event("Group Chat", "TH", 1000, 1445, 1, "");
+    
+    try {
+      a1.checkConflict(a2);
+      a2.checkConflict(a1);
+      fail(); 
+    } catch(ConflictException e) {
+      assertEquals("The event is invalid", e.getMessage());
+     
+    }
+    
+  }
+  
+  /** Test that a course and an event don't occur at the same time **/
+  @Test
+  public void testActivityTime() {
+   
+    
+    Activity a1 = new Course("CSC216", "Programming Concepts - Java", "001", 4, "sesmith5", "TH", 1330, 1445);
+    Activity a2 = new Event("Lunch", "M", 1330, 1500, 1, "");
+    
+    try {
+      a1.checkConflict(a2);
+      a2.checkConflict(a1);
+      fail(); 
+    } catch(ConflictException e) {
+      assertEquals("The event is invalid", e.getMessage());
+     
+    }
+    
+  }
+  
+  /** Test if an event was named as a course **/
+  @Test
+  public void testEventNameConflict() {
+   
+    
+    Activity a1 = new Course("CSC216", "Programming Concepts - Java", "001", 4, "sesmith5", "TH", 1330, 1445);
+    Activity a2 = new Event("CSC216", "M", 1000, 1100, 1, "");
+    
+    try {
+      a2.checkConflict(a1);
+      fail(); 
+    } catch(ConflictException e) {
+      assertEquals("Invalid Activity", e.getMessage());
+     
+    }
+    
+  }
+  
+  
+  
+  
+  
   
 
 
