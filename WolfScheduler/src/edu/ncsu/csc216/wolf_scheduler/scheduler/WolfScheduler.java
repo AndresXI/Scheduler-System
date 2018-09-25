@@ -2,6 +2,7 @@
 package edu.ncsu.csc216.wolf_scheduler.scheduler;
 
 import edu.ncsu.csc216.wolf_scheduler.course.Activity;
+import edu.ncsu.csc216.wolf_scheduler.course.ConflictException;
 import edu.ncsu.csc216.wolf_scheduler.course.Course;
 import edu.ncsu.csc216.wolf_scheduler.course.Event;
 import edu.ncsu.csc216.wolf_scheduler.io.ActivityRecordIO;
@@ -97,8 +98,17 @@ public class WolfScheduler {
       if (mySchedule.get(i).isDuplicate(course)) { // if duplicate throw exception 
         throw new IllegalArgumentException("You are already enrolled in " + myC.getName()); 
       } 
-
     }
+    
+    // check for conflicting activity 
+    for (int i = 0; i < mySchedule.size(); i++) {
+      try {
+        mySchedule.get(i).checkConflict(course);
+      } catch (ConflictException e) {
+        throw new IllegalArgumentException(); 
+      }
+    }
+    
     this.mySchedule.add(course);
     return true;
    
@@ -125,6 +135,15 @@ public class WolfScheduler {
       }
     }
     
+    // check for conflicting activity 
+    for (int i = 0; i < mySchedule.size(); i++) {
+      try {
+        mySchedule.get(i).checkConflict(course);
+      } catch (ConflictException e) {
+        throw new IllegalArgumentException(); 
+      }
+    }
+   
     this.mySchedule.add(course); 
     //myEvent.(title, meetingDays, startTime, endTime, weeklyRepeat, eventDetails ); 
   }

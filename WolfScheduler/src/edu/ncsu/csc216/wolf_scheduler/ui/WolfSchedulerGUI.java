@@ -145,7 +145,7 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
    * Inner class that creates the look and behavior for the {@link JPanel} that 
    * shows the list of requirements.
    * 
-   * @author Sarah Heckman 
+   * @author Andres Alcocer
    */
   private class SchedulerPanel extends JPanel implements ActionListener {
     /** ID number used for object serialization. */
@@ -978,4 +978,3 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
     
   }
 }
-

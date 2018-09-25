@@ -273,33 +273,42 @@ public abstract class Activity implements Conflict {
   public void checkConflict(Activity possibleConflictingActivity) throws ConflictException {
     
     if (this.getMeetingDays().equals(possibleConflictingActivity.getMeetingDays())
-        && this.startTime == possibleConflictingActivity.getEndTime()) {
+        && this.getStartTime() == possibleConflictingActivity.getEndTime()) {
      
         throw new ConflictException("The course cannot be added due to a conflict");
-      
     } 
       
     if (this.getTitle().equals(possibleConflictingActivity.getTitle()) && possibleConflictingActivity instanceof Event) {
         throw new ConflictException("You have already created an event called " + this.getTitle()); 
       }
     
-    if (this.getStartTime() == possibleConflictingActivity.getStartTime() && possibleConflictingActivity instanceof Event) {
+    if (this.getEndTime() == possibleConflictingActivity.getEndTime() && possibleConflictingActivity instanceof Event
+        && this.getMeetingDays().equals(possibleConflictingActivity.getMeetingDays())) {
       throw new ConflictException("The event is invalid"); 
     }
     
-    if (this.getEndTime() == possibleConflictingActivity.getEndTime() && possibleConflictingActivity instanceof Event) {
+    if (this.getStartTime() == possibleConflictingActivity.getStartTime() && possibleConflictingActivity instanceof Event
+        && this.getMeetingDays().equals(possibleConflictingActivity.getMeetingDays())) {
       throw new ConflictException("The event is invalid"); 
     }
     
-    if (possibleConflictingActivity instanceof Course) {
-      Course courseCasted = (Course) possibleConflictingActivity;
-      if(courseCasted.getName().equals(this.getTitle())) {
-        throw new ConflictException("Invalid Activity"); 
-      }
+    if (this.getEndTime() == possibleConflictingActivity.getStartTime() && this.getMeetingDays().equals(possibleConflictingActivity.getMeetingDays())
+          && possibleConflictingActivity instanceof Event) {
+      throw new ConflictException("The event is invalid due to overlap time conflict"); 
     }
     
-  
- 
+    if (this.getMeetingDays().matches(possibleConflictingActivity.getMeetingDays())
+        && this.startTime == possibleConflictingActivity.getEndTime()) {
+     
+        throw new ConflictException("The course cannot be added due to a conflict");
+    } 
+    
+    if (this.getMeetingDays().matches(possibleConflictingActivity.getMeetingDays())
+        && this.endTime == possibleConflictingActivity.getStartTime()) {
+     
+        throw new ConflictException("The course cannot be added due to a conflict");
+    } 
+   
     
   } 
   

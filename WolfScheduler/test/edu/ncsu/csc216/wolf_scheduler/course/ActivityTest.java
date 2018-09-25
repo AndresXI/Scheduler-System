@@ -61,7 +61,7 @@ public class ActivityTest {
   public void testStartTimeConflict() {
     // Test for events with the same starting time 
     Activity a1 = new Event("Lunch", "M", 1100, 1445, 1, "");
-    Activity a2 = new Event("Group Chat", "TH", 1100, 1600, 1, "");
+    Activity a2 = new Event("Group Chat", "M", 1100, 1600, 1, "");
     
     try {
       a1.checkConflict(a2);
@@ -79,7 +79,7 @@ public class ActivityTest {
   public void testEndTimeConflict() {
     // Test for events with the same ending time 
     Activity a1 = new Event("Lunch", "M", 1100, 1445, 1, "");
-    Activity a2 = new Event("Group Chat", "TH", 1000, 1445, 1, "");
+    Activity a2 = new Event("Group Chat", "M", 1000, 1445, 1, "");
     
     try {
       a1.checkConflict(a2);
@@ -97,7 +97,7 @@ public class ActivityTest {
   public void testActivityTime() {
    
     
-    Activity a1 = new Course("CSC216", "Programming Concepts - Java", "001", 4, "sesmith5", "TH", 1330, 1445);
+    Activity a1 = new Course("CSC216", "Programming Concepts - Java", "001", 4, "sesmith5", "M", 1330, 1445);
     Activity a2 = new Event("Lunch", "M", 1330, 1500, 1, "");
     
     try {
@@ -111,23 +111,38 @@ public class ActivityTest {
     
   }
   
-  /** Test if an event was named as a course **/
-  @Test
-  public void testEventNameConflict() {
+  @Test 
+  public void testAddingCourse() {
    
-    
-    Activity a1 = new Course("CSC216", "Programming Concepts - Java", "001", 4, "sesmith5", "TH", 1330, 1445);
-    Activity a2 = new Event("CSC216", "M", 1000, 1100, 1, "");
-    
+    // test ending time of course 
+    Activity a1 = new Event("Lunch", "M", 1445, 1500, 1, "");
+    Activity a2 = new Course("CSC216", "Programming Concepts - Java", "001", 4, "sesmith5", "M", 1330, 1445);
+   
     try {
+      a1.checkConflict(a2);
       a2.checkConflict(a1);
       fail(); 
     } catch(ConflictException e) {
-      assertEquals("Invalid Activity", e.getMessage());
+      assertEquals("The course cannot be added due to a conflict", e.getMessage());
+     
+    }
+    
+    // test start time of course 
+    a1.setActivityTime(1200, 1330);
+    try {
+      a1.checkConflict(a2);
+      a2.checkConflict(a1);
+      fail(); 
+    } catch(ConflictException e) {
+      assertEquals("The course cannot be added due to a conflict", e.getMessage());
      
     }
     
   }
+    
+  
+  
+
   
   
   
