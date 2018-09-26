@@ -405,15 +405,13 @@ public class WolfSchedulerTest {
     ws.addCourse("CSC116", "001"); 
     ws.addCourse("CSC216", "002");
   
-  try {
-    ws.addCourse("CSC226", "001");
-  } catch (IllegalArgumentException e) {
-    assertEquals(2, ws.getFullScheduledActivities().length); 
-  }
     
- 
-    
-
+    try {
+      ws.addCourse("CSC226", "001"); 
+    } catch (IllegalArgumentException e) {
+      assertEquals(2, ws.getFullScheduledActivities().length); 
+    }
+   
   
 }
   
