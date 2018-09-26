@@ -403,13 +403,12 @@ public class WolfSchedulerTest {
   public void testAddCourseConflict() {
     WolfScheduler ws = new WolfScheduler(validTestFile);
     ws.addCourse("CSC116", "001"); 
-  ws.addCourse("CSC216", "002"); 
+    ws.addCourse("CSC216", "002");
   
   try {
     ws.addCourse("CSC226", "001");
   } catch (IllegalArgumentException e) {
-    assertTrue(ws.addCourse("CSC116", "001"));
-    ws.addCourse("CSC216", "002"); 
+    assertEquals(2, ws.getFullScheduledActivities().length); 
   }
     
  
