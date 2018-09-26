@@ -13,7 +13,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import edu.ncsu.csc216.wolf_scheduler.course.Activity;
-import edu.ncsu.csc216.wolf_scheduler.course.ConflictException;
 import edu.ncsu.csc216.wolf_scheduler.course.Course;
 import edu.ncsu.csc216.wolf_scheduler.scheduler.WolfScheduler;
 
@@ -396,16 +395,21 @@ public class WolfSchedulerTest {
   }
   
   
-@Test 
-public void testAddCourseConflict() {
-  WolfScheduler ws = new WolfScheduler(validTestFile);
-  ws.addCourse("CSC116", "001"); 
+ 
+/**
+ * Test WolfScheduler adding a course conflict.
+ */
+  @Test
+  public void testAddCourseConflict() {
+    WolfScheduler ws = new WolfScheduler(validTestFile);
+    ws.addCourse("CSC116", "001"); 
   ws.addCourse("CSC216", "002"); 
   
   try {
     ws.addCourse("CSC226", "001");
   } catch (IllegalArgumentException e) {
-    
+    assertTrue(ws.addCourse("CSC116", "001"));
+    ws.addCourse("CSC216", "002"); 
   }
     
  
