@@ -37,7 +37,7 @@ import edu.ncsu.csc216.wolf_scheduler.scheduler.WolfScheduler;
  * GUI for the WolfScheduler project.  
  * The GUI displays the course catalog and the student's schedule.
  * 
- * @author Andres Alcocer
+ * @author Sarah Heckman
  */
 public class WolfSchedulerGUI extends JFrame implements ActionListener {
   
@@ -145,7 +145,7 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
    * Inner class that creates the look and behavior for the {@link JPanel} that 
    * shows the list of requirements.
    * 
-   * @author Andres Alcocer
+   * @author Sarah Heckman 
    */
   private class SchedulerPanel extends JPanel implements ActionListener {
     /** ID number used for object serialization. */
