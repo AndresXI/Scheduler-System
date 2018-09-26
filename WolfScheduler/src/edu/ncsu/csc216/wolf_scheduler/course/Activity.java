@@ -320,6 +320,12 @@ public abstract class Activity implements Conflict {
      
       throw new ConflictException("The course cannot be added due to a conflict");
     } 
+    
+    if (this.getMeetingDays().indexOf(possibleConflictingActivity.getMeetingDays()) > 1 
+        && this.getEndTime() > possibleConflictingActivity.getStartTime()) {
+        
+      throw new ConflictException("Conflicting event"); 
+    }
    
     
   } 
