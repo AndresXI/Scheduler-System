@@ -2,7 +2,9 @@ package edu.ncsu.csc216.wolf_scheduler.course;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-/** Test for the course class. **/
+/** Test for the course class.
+ * @author andres 
+ **/
 public class CourseTest {
 	
 	/** Course name */
