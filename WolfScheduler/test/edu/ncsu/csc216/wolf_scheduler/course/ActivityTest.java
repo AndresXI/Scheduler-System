@@ -12,6 +12,7 @@ import org.junit.Test;
  */
 public class ActivityTest {
 
+  /** Check conflict time overlap. **/
   @Test
   public void testCheckConflict() {
     

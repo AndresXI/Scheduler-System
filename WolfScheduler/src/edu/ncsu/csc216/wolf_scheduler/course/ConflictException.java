@@ -9,7 +9,9 @@ package edu.ncsu.csc216.wolf_scheduler.course;
 public class ConflictException extends Exception {
   
   
-  /** call constructor of parent Exception with custom string message. **/
+  /** call constructor of parent Exception with custom string message. 
+   * @param message message to be trown to the user.
+   **/
   public ConflictException(String message) {
     super(message); 
   }
