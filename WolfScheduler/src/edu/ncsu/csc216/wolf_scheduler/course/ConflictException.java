@@ -10,7 +10,7 @@ public class ConflictException extends Exception {
   
   
   /** call constructor of parent Exception with custom string message. 
-   * @param message message to be trown to the user.
+   * @param message message to be thrown to the user.
    **/
   public ConflictException(String message) {
     super(message); 
@@ -19,7 +19,7 @@ public class ConflictException extends Exception {
   /** calls the parameterless constructor. **/ 
   public ConflictException() {
     
-    this("Schedule conflict."); 
+    this("Schedule conflict"); 
   }
 
 
