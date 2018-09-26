@@ -393,7 +393,21 @@ public class WolfSchedulerTest {
       assertEquals("New Title", ws.getTitle());
     }
   }
+  
+  
+@Test 
+public void testAddCourseConflict() {
+  WolfScheduler ws = new WolfScheduler(validTestFile);
+  ws.addCourse("CSC116", "001"); 
+  ws.addCourse("CSC216", "002"); 
+  
+  
+    ws.addCourse("CSC226", "001");
+ 
+    
 
+  
+}
   
   /**
    * Test WolfScheduler.exportSchedule().
