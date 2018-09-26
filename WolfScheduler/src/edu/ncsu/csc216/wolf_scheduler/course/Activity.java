@@ -328,8 +328,8 @@ public abstract class Activity implements Conflict {
     }
     
     if (this.getMeetingDays().matches(".*[" + possibleConflictingActivity.getMeetingDays() + "].*")  
-        && this.getEndTime() > possibleConflictingActivity.getStartTime()) {
-      throw new ConflictException("Conflicting event dsd "); 
+        && this.getEndTime() > possibleConflictingActivity.getStartTime() && this.getStartTime() < possibleConflictingActivity.getEndTime()) {
+      throw new ConflictException("Conflicting event"); 
     }
   
     

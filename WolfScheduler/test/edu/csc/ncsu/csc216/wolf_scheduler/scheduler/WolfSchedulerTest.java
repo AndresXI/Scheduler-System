@@ -184,6 +184,13 @@ public class WolfSchedulerTest {
     //Attempt to remove from empty schedule
     assertFalse(ws.removeActivity(0));
     
+    
+    
+//    if (this.getMeetingDays().matches(".*[" + possibleConflictingActivity.getMeetingDays() + "].*")  
+//        && this.getEndTime() > possibleConflictingActivity.getStartTime()) {
+//      throw new ConflictException("Conflicting event"); 
+//    }
+    
     //Add some courses and remove them
     assertTrue(ws.addCourse(NAME, SECTION));
     assertTrue(ws.addCourse("CSC226", "001"));
@@ -401,8 +408,12 @@ public void testAddCourseConflict() {
   ws.addCourse("CSC116", "001"); 
   ws.addCourse("CSC216", "002"); 
   
-  
+  try {
     ws.addCourse("CSC226", "001");
+  } catch (IllegalArgumentException e) {
+    
+  }
+    
  
     
 
