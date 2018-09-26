@@ -185,12 +185,6 @@ public class WolfSchedulerTest {
     assertFalse(ws.removeActivity(0));
     
     
-    
-//    if (this.getMeetingDays().matches(".*[" + possibleConflictingActivity.getMeetingDays() + "].*")  
-//        && this.getEndTime() > possibleConflictingActivity.getStartTime()) {
-//      throw new ConflictException("Conflicting event"); 
-//    }
-    
     //Add some courses and remove them
     assertTrue(ws.addCourse(NAME, SECTION));
     assertTrue(ws.addCourse("CSC226", "001"));
