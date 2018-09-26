@@ -13,10 +13,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import edu.ncsu.csc216.wolf_scheduler.course.Activity;
-import edu.ncsu.csc216.wolf_scheduler.course.ConflictException;
 import edu.ncsu.csc216.wolf_scheduler.course.Course;
 import edu.ncsu.csc216.wolf_scheduler.scheduler.WolfScheduler;
-
 
 /**
  * Tests the WolfScheduler class.
@@ -33,7 +31,7 @@ public class WolfSchedulerTest {
   /** Course name */
   private static final String NAME = "CSC216";
   /** Course title */
-  private static final String TITLE = "Programming Concepts - Java";  
+  private static final String TITLE = "Programming Concepts - Java";
   /** Course section */
   private static final String SECTION = "001";
   /** Course credits */
@@ -313,8 +311,7 @@ public class WolfSchedulerTest {
     assertTrue(ws.addCourse(NAME, SECTION));
     assertTrue(ws.addCourse("CSC226", "001"));
     ws.addEvent("Lunch", "MWF", 1200, 1300, 1, "Food");
-  
-   
+    assertTrue(ws.addCourse("CSC116", "002"));
     
     String [][] schedule = ws.getScheduledActivities();
     //Row 1
@@ -351,7 +348,7 @@ public class WolfSchedulerTest {
     assertTrue(ws.addCourse(NAME, SECTION));
     assertTrue(ws.addCourse("CSC226", "001"));
     ws.addEvent("Lunch", "MWF", 1200, 1300, 1, "Food");
-    
+    assertTrue(ws.addCourse("CSC116", "002"));
     
     String [][] schedule = ws.getFullScheduledActivities();
     //Row 1
