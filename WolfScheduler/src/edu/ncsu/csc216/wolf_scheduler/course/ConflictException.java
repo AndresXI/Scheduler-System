@@ -1,23 +1,22 @@
-/**
- * 
- */
+
 package edu.ncsu.csc216.wolf_scheduler.course;
 
 /**
+ * Conflict Exception implementation.
  * @author andres
  *
  */
 public class ConflictException extends Exception {
   
   
+  /** call constructor of parent Exception with custom string message. **/
   public ConflictException(String message) {
-    // call constructor of parent Exception with custom string message 
     super(message); 
   }
   
-  
+  /** calls the parameterless constructor. **/ 
   public ConflictException() {
-    // calls the parameterless constructor 
+    
     this("Schedule conflict"); 
   }
 

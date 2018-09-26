@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package edu.ncsu.csc216.wolf_scheduler.course;
 
 import static org.junit.Assert.*;
@@ -8,6 +6,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
+ * Conflict Exception test class.
  * @author andres
  *
  */
