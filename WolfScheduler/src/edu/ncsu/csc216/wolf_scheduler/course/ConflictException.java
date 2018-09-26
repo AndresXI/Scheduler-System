@@ -19,7 +19,7 @@ public class ConflictException extends Exception {
   /** calls the parameterless constructor. **/ 
   public ConflictException() {
     
-    this("Schedule conflict"); 
+    this("Schedule conflict."); 
   }
 
 
