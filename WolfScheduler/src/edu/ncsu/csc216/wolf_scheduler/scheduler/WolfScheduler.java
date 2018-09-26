@@ -105,7 +105,7 @@ public class WolfScheduler {
       try {
         mySchedule.get(i).checkConflict(course);
       } catch (ConflictException e) {
-        throw new IllegalArgumentException("The course cannot be added due to a conflict."); 
+        throw new IllegalArgumentException(e.getMessage()); 
       }
     }
     
