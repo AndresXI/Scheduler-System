@@ -26,7 +26,7 @@ public class ActivityTest {
             "MW 1:30PM-2:45PM", a1.getMeetingString());
       assertEquals("Incorrect meeting string for possibleConflictingActivity.",
             "TH 1:30PM-2:45PM", a2.getMeetingString());
-    } catch (ConflictException e) {
+    } catch (ConflictException e) { 
       fail("A ConflictException was thrown when two Activities at the"
             + " same time on completely distinct days were compared.");
     }

@@ -318,7 +318,7 @@ public abstract class Activity implements Conflict {
     if (this.getMeetingDays().matches(possibleConflictingActivity.getMeetingDays())
         && this.endTime == possibleConflictingActivity.getStartTime()) {
      
-      throw new ConflictException("The course cannot be added due to a conflict 4");
+      throw new ConflictException("The course cannot be added due to a conflict");
     } 
     
     if (this.getMeetingDays().contains(possibleConflictingActivity.getMeetingDays()) 
@@ -327,7 +327,7 @@ public abstract class Activity implements Conflict {
       throw new ConflictException("Conflicting event dddd"); 
     }
     
-    if (this.getMeetingDays().matches(".*[MWF].*")  
+    if (this.getMeetingDays().matches(".*[" + possibleConflictingActivity.getMeetingDays() + "].*")  
         && this.getEndTime() > possibleConflictingActivity.getStartTime()) {
       throw new ConflictException("Conflicting event dsd "); 
     }
