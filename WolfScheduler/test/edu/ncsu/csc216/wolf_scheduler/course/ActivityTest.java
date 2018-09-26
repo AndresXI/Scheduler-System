@@ -42,6 +42,17 @@ public class ActivityTest {
       assertEquals("TH 2:45PM-3:30PM", a1.getMeetingString());
       assertEquals("TH 1:30PM-2:45PM", a2.getMeetingString());
     }
+    
+    // test same activity 
+    a1.setActivityTime(1330, 1445);
+    try {
+      a1.checkConflict(a2);
+      fail(); //ConflictException should have been thrown, but was not.
+    } catch (ConflictException e) {
+      //Check that the internal state didn't change during method call.
+      assertEquals("TH 1:30PM-2:45PM", a1.getMeetingString());
+      assertEquals("TH 1:30PM-2:45PM", a2.getMeetingString());
+    }
   }
   
   
