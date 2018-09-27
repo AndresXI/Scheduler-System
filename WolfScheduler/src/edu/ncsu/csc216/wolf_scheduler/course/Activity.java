@@ -60,7 +60,7 @@ public abstract class Activity implements Conflict {
    * @param meetingDays valid meeting days   
    */
   public void setMeetingDays(String meetingDays) { 
-    if (meetingDays == null || meetingDays.equals("") || meetingDays.matches(".*[0]*.")) {
+    if (meetingDays == null || meetingDays.equals("")) {
       throw new IllegalArgumentException(); 
     }
     this.meetingDays = meetingDays;
