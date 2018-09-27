@@ -306,13 +306,13 @@ public abstract class Activity implements Conflict {
     if (this.getEndTime() == possibleConflictingActivity.getStartTime() 
         && this.getMeetingDays().equals(possibleConflictingActivity.getMeetingDays())
           && possibleConflictingActivity instanceof Event) {
-      throw new ConflictException("The event is invalid due to overlap time conflict 23"); 
+      throw new ConflictException("The event is invalid due to overlap time conflict"); 
     }
     
     if (this.getMeetingDays().matches(possibleConflictingActivity.getMeetingDays())
         && this.startTime == possibleConflictingActivity.getEndTime()) {
      
-      throw new ConflictException("The course cannot be added due to a conflict 443");
+      throw new ConflictException("The course cannot be added due to a conflict");
     } 
     
     if (this.getMeetingDays().matches(possibleConflictingActivity.getMeetingDays())
@@ -324,14 +324,14 @@ public abstract class Activity implements Conflict {
     if (this.getMeetingDays().contains(possibleConflictingActivity.getMeetingDays()) 
         && this.getEndTime() > possibleConflictingActivity.getStartTime()) {
         
-      throw new ConflictException("Conflicting event dddd"); 
+      throw new ConflictException("Conflicting event"); 
     }
     
     if (this.getMeetingDays().matches(".*[" + possibleConflictingActivity.getMeetingDays() 
         + "].*")  
         && this.getEndTime() > possibleConflictingActivity.getStartTime()
         && this.getStartTime() < possibleConflictingActivity.getEndTime()) {
-      throw new ConflictException("Conflicting event"); 
+      throw new ConflictException("The course cannot be added due to a conflict."); 
     }
   
     
