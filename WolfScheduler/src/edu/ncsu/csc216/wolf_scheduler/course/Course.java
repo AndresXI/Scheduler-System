@@ -263,7 +263,7 @@ public class Course extends Activity {
   @Override
   /** Sets the meeting days.**/
   public void setMeetingDays(String meetingDays) {
-    if (meetingDays == null || meetingDays.matches(".*[BCDEGIJKLNOPQRSUVXYZ].*") 
+    if (meetingDays == null || meetingDays.matches(".*[BCDEGIJKLNOPQRSUVXYZ0].*") 
         || meetingDays.contains("A") && meetingDays.length() != 1 || getStartTime() == 1) {
       throw new IllegalArgumentException(); 
     }
