@@ -31,7 +31,7 @@ public class ActivityTest {
             + " same time on completely distinct days were compared.");
     }
       
-    //Update a1 with the same meeting days and a start time that overlaps the end time of a2
+    //Update a1 with the same meeting days and a start time that overlaps the end time of a2.
     a1.setMeetingDays("TH");
     a1.setActivityTime(1445, 1530);
     try {
